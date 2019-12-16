@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "puppeteer": "^2.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^2.0.0",
+    "concurrently": "^5.0.1"
+  },
+  "name": "fielder-bench",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --raw \"npm run fielder\" \"npm run formik\" \"sleep 10 && clear && npm run bench\"",
+    "fielder": "npm --prefix fielder run start",
+    "formik": "npm --prefix formik run start",
+    "bench": "node src/index.mjs",
+    "postinstall": "npm ci --prefix fielder && npm ci --prefix formik"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
