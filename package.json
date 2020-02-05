@@ -16,7 +16,7 @@
     "fielder": "npm --prefix fielder run start",
     "formik": "npm --prefix formik run start",
     "bench": "node src/index.mjs",
-    "postinstall": "npm ci --prefix fielder && npm ci --prefix formik"
+    "postinstall": "npm i --prefix fielder && npm i --prefix formik"
   },
   "author": "",
   "license": "ISC",
