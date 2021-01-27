@@ -55,7 +55,6 @@ const testChange = async url => {
   await client.send("Performance.enable");
 
   await page.goto(url);
-  await page.waitFor(100);
 
   // Type invalid value and blur
   await page.click('input[name="username"]');
@@ -71,7 +70,6 @@ const testChange = async url => {
   await page.keyboard.type("thisismypass");
   await page.click("body");
 
-  await page.waitFor(100);
   const timings = JSON.parse(
     await page.evaluate(() => JSON.stringify(window.performance.timing))
   );
