@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm, useField, FielderProvider, useFormContext } from "fielder";
+import { useForm, useField, FielderProvider } from "fielder";
 
 export const Form = () => (
   <FormProvider>
@@ -16,14 +16,14 @@ const FormProvider = ({ children }) => {
 const FormContent = () => {
   const [usernameProps, usernameMeta] = useField({
     name: "username",
+    initialValue: '',
     validate: validateUsername,
-    validateOnChange: true
   });
 
   const [passwordProps] = useField({
     name: "password",
+    initialValue: '',
     validate: validatePassword,
-    validateOnChange: true
   });
 
   return (
@@ -35,18 +35,18 @@ const FormContent = () => {
   );
 };
 
-const validateUsername = u => {
-  if (!u) {
+const validateUsername = ({ value }) => {
+  if (!value) {
     throw Error("Username is undefined");
   }
 
-  if (u.length < 3) {
+  if (value.length < 3) {
     throw Error("Username must be at least 3 characters long");
   }
 };
 
-const validatePassword = p => {
-  if (!u) {
+const validatePassword = ({ value }) => {
+  if (!value) {
     throw Error("Password is undefined");
   }
 };
