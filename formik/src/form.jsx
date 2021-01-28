@@ -37,16 +37,16 @@ const FormContent = () => {
 
 const validateUsername = u => {
   if (!u) {
-    throw Error("Username is undefined");
+    return "Username is undefined";
   }
 
   if (u.length < 3) {
-    throw Error("Username must be at least 3 characters long");
+    return "Username must be at least 3 characters long";
   }
 };
 
 const validatePassword = p => {
-  if (!u) {
-    throw Error("Password is undefined");
+  if (!p) {
+    return "Password is undefined";
   }
 };
